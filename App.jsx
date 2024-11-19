@@ -51,7 +51,7 @@ function App() {
               : card
           )
         );
-      }, 1000);
+      }, 500);
     }
 
     setFlippedCards([]);
