@@ -1,43 +1,132 @@
-.App {
-  text-align: center;
-  margin-top: 20px;
+/* Add a gradient background and floating animation */
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 100px);
-  gap: 10px;
+.memory-game {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .card {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.flipped {
+  background-color: lightgreen;
+}
+
+.game-over {
+  margin-top: 20px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border: none;
+  background-color: #ffcc00;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ff9900;
+}
+
+/* Background Effects */
+.background-effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.background-effects span {
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: float 10s infinite ease-in-out;
+  border-radius: 50%;
+}
+
+/* Keyframes for the floating effect */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Different floating elements */
+.background-effects span:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-duration: 7s;
+}
+
+.background-effects span:nth-child(2) {
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  animation-duration: 10s;
+  animation-delay: 2s;
+}
+
+.background-effects span:nth-child(3) {
+  left: 75%;
   width: 100px;
   height: 100px;
-  background-color: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: 10px;
-  font-size: 24px;
-  transition: transform 0.3s;
-}
-
-.card.flipped {
-  background-color: #ffffff;
-  border: 2px solid #ffcc00;
-  transform: rotateY(180deg);
-}
-
-.card-content {
-  font-size: 2rem;
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-h2 {
-  color: green;
+  animation-duration: 12s;
+  animation-delay: 4s;
 }
